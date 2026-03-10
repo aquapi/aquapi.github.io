@@ -1,0 +1,22 @@
+{
+  "name": "portfolio",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "fmt": "oxfmt",
+    "build": "bun scripts/build.ts",
+    "dev": "bun scripts/server.ts --watch ./.build"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "oxfmt": "^0.37.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "md4x": "^0.0.25",
+    "shiki": "^4.0.2"
+  }
+}
