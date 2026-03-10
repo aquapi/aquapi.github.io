@@ -11,7 +11,7 @@ const highlighter = await createHighlighter({
 {
   const ROOT = path.join(import.meta.dir, '..');
   const PAGES = path.join(ROOT, 'pages');
-  const PAGES_OUTPUT = path.join(ROOT, '.build');
+  const PAGES_OUTPUT = path.join(ROOT, 'build');
 
   const TEMPLATE = await Bun.file(path.join(PAGES, 'template.html')).text();
 
