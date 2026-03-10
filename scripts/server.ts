@@ -4,5 +4,5 @@ export default {
   routes: {
     '/': index,
   },
-  fetch: () => {}
+  fetch: () => {},
 };
