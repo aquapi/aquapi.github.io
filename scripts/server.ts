@@ -1,4 +1,4 @@
-import index from '../build/index.html';
+import index from '../docs/index.html';
 
 export default {
   routes: {
