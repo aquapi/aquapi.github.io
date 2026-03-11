@@ -6,7 +6,7 @@
   "scripts": {
     "fmt": "oxfmt",
     "build": "bun scripts/build.ts",
-    "dev": "bun scripts/server.ts --watch ./.build"
+    "dev": "bun serve docs"
   },
   "devDependencies": {
     "@types/bun": "latest",
@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "md4x": "^0.0.25",
+    "serve": "^14.2.6",
     "shiki": "^4.0.2"
   }
 }

@@ -1,0 +1,200 @@
+@font-face {
+  font-family: "Noto Sans";
+  src: url("/public/font-mono.ttf");
+}
+
+:root {
+  --color-heading-before: #9cdcfe;
+  --color-heading: #9cdcfe;
+
+  --color-bg: #181a1f;
+  --color: #e6e6e6;
+
+  --color-code: #e6e6e6;
+  --color-code-bg: #111317;
+
+  --color-link: #58a6ff;
+  --color-link-hover: #79c0ff;
+
+  --color-li-before: #ffcb6b;
+}
+
+* {
+  font-family: "Noto Sans";
+  font-size: 13px;
+  border: 0;
+  margin: 0;
+  padding: 0.05em 0 0 0;
+  list-style: none;
+  font-weight: normal;
+}
+
+body {
+  width: 75ex;
+  margin: 1em auto;
+
+  color: var(--color);
+  background: var(--color-bg);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0.5em;
+  color: var(--color-heading);
+
+  code {
+    background: var(--color-bg);
+  }
+
+  &::before {
+    color: var(--color-heading-before);
+  }
+}
+
+h1 {
+  &::before {
+    content: "# ";
+  }
+
+  margin-top: 2.5rem;
+}
+
+h2 {
+  &::before {
+    content: "## ";
+  }
+
+  margin-top: 2.1rem;
+}
+
+h3 {
+  &::before {
+    content: "### ";
+  }
+
+  margin-top: 1.7rem;
+}
+
+h4 {
+  &::before {
+    content: "#### ";
+  }
+
+  margin-top: 1.3rem;
+}
+
+h5 {
+  &::before {
+    content: "##### ";
+  }
+
+  margin-top: 0.9rem;
+}
+
+h6 {
+  &::before {
+    content: "###### ";
+  }
+
+  margin-top: 0.5rem;
+}
+
+strong,
+b {
+  font-weight: bold;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+strong::before,
+strong::after,
+b::before,
+b::after {
+  content: "**";
+}
+
+em::before,
+em::after,
+i::before,
+i::after {
+  content: "_";
+}
+
+pre,
+code {
+  background: var(--color-code-bg);
+  color: var(--color-code);
+}
+
+pre {
+  overflow: auto;
+
+  &::before,
+  &::after {
+    content: "```";
+    display: block;
+  }
+
+  code {
+    &::before,
+    &::after {
+      content: "";
+    }
+  }
+}
+
+code {
+  &::before,
+  &::after {
+    content: "`";
+    background: var(--color-bg);
+  }
+}
+
+ol li {
+  margin-left: 4ex;
+  list-style: decimal outside;
+}
+ul li {
+  margin-left: 3ex;
+
+  &::before {
+    content: "* ";
+    display: block;
+    margin-left: -2.5ex;
+    margin-top: 0.5315ex;
+    color: var(--color-li-before);
+    float: left;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-link);
+
+  &:hover {
+    color: var(--color-link-hover);
+  }
+
+  &::before {
+    content: "[";
+  }
+
+  &::after {
+    content: "]";
+  }
+}
+
+@media print {
+  body {
+    width: auto;
+    font-size: 10pt;
+  }
+}
