@@ -4,7 +4,7 @@ import { createHighlighter } from 'shiki';
 import path from 'node:path';
 
 const highlighter = await createHighlighter({
-  themes: ['github-dark'],
+  themes: ['catppuccin-frappe'],
   langs: ['js', 'json', 'jsonc', 'ts', 'html', 'css', 'c', 'zig'],
 });
 
@@ -17,18 +17,17 @@ const highlighter = await createHighlighter({
 
   const renderPage = async (p: string) => {
     const content = renderToHtml(await Bun.file(path.join(PAGES, p)).text(), {
-      full: true,
       highlighter: (code, block) =>
         block.lang !== ''
           ? highlighter.codeToHtml(code, {
               lang: block.lang,
-              theme: 'github-dark',
+              theme: 'catppuccin-frappe'
             })
           : void 0,
     });
 
     await Bun.write(
-      path.join(PAGES_OUTPUT, path.basename(p, '.md') + '.html'),
+      path.join(PAGES_OUTPUT, p.slice(0, -'.md'.length) + '.html'),
       TEMPLATE.replace('<body></body>', `<body>${content}</body>`),
     );
   };

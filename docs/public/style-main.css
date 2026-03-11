@@ -17,16 +17,24 @@
   --color-link-hover: #79c0ff;
 
   --color-li-before: #ffcb6b;
+
+  --size-font: max(calc(6px + 0.390625vw), 13px);
 }
 
 * {
   font-family: "Noto Sans";
-  font-size: 13px;
+  font-size: var(--size-font);
+
   border: 0;
   margin: 0;
-  padding: 0.05em 0 0 0;
+  padding: 1px 0;
+
   list-style: none;
   font-weight: normal;
+
+  &::before {
+    font-size: var(--size-font);
+  }
 }
 
 body {
@@ -45,10 +53,6 @@ h5,
 h6 {
   margin-bottom: 0.5em;
   color: var(--color-heading);
-
-  code {
-    background: var(--color-bg);
-  }
 
   &::before {
     color: var(--color-heading-before);
@@ -127,35 +131,11 @@ i::after {
   content: "_";
 }
 
-pre,
-code {
-  background: var(--color-code-bg);
-  color: var(--color-code);
-}
-
 pre {
   overflow: auto;
 
-  &::before,
-  &::after {
-    content: "```";
-    display: block;
-  }
-
-  code {
-    &::before,
-    &::after {
-      content: "";
-    }
-  }
-}
-
-code {
-  &::before,
-  &::after {
-    content: "`";
-    background: var(--color-bg);
-  }
+  margin-top: 0.5rem;
+  padding: 10px 0 14px 16px;
 }
 
 ol li {
