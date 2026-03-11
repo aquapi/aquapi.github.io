@@ -7,9 +7,9 @@
   </head>
   <body><h1>@mapl/web</h1>
 <p>Low-level, runtime-agnostic JS backend framework.</p>
-<pre class="shiki catppuccin-frappe" style="background-color:#303446;color:#c6d0f5" tabindex="0"><code><span class="line"><span style="color:#CA9EE6">import</span><span style="color:#949CBB"> {</span><span style="color:#C6D0F5"> router</span><span style="color:#949CBB">,</span><span style="color:#C6D0F5"> send </span><span style="color:#949CBB">}</span><span style="color:#CA9EE6"> from</span><span style="color:#A6D189"> '@mapl/web'</span><span style="color:#949CBB">;</span></span>
+<pre class="shiki catppuccin-frappe" style="background-color:#303446;color:#c6d0f5" tabindex="0"><code><span class="line"><span style="color:#949CBB;font-style:italic">// index.ts</span></span>
+<span class="line"><span style="color:#CA9EE6">import</span><span style="color:#949CBB"> {</span><span style="color:#C6D0F5"> router</span><span style="color:#949CBB">,</span><span style="color:#C6D0F5"> send </span><span style="color:#949CBB">}</span><span style="color:#CA9EE6"> from</span><span style="color:#A6D189"> '@mapl/web'</span><span style="color:#949CBB">;</span></span>
 <span class="line"><span style="color:#CA9EE6">import</span><span style="color:#949CBB"> {</span><span style="color:#C6D0F5"> compile</span><span style="color:#949CBB">,</span><span style="color:#C6D0F5"> vars </span><span style="color:#949CBB">}</span><span style="color:#CA9EE6"> from</span><span style="color:#A6D189"> '@mapl/web/generic'</span><span style="color:#949CBB">;</span></span>
-<span class="line"><span style="color:#CA9EE6">import</span><span style="color:#949CBB"> {</span><span style="color:#C6D0F5"> getDependency </span><span style="color:#949CBB">}</span><span style="color:#CA9EE6"> from</span><span style="color:#A6D189"> 'runtime-compiler'</span><span style="color:#949CBB">;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#CA9EE6">const</span><span style="color:#C6D0F5"> root </span><span style="color:#81C8BE">=</span><span style="color:#C6D0F5"> router</span><span style="color:#81C8BE">.</span><span style="color:#8CAAEE;font-style:italic">init</span><span style="color:#C6D0F5">()</span><span style="color:#949CBB">;</span></span>
 <span class="line"></span>
@@ -34,8 +34,14 @@
 <span class="line"><span style="color:#C6D0F5">  vars</span><span style="color:#81C8BE">.</span><span style="color:#C6D0F5">request</span><span style="color:#949CBB">,</span></span>
 <span class="line"><span style="color:#C6D0F5">)</span><span style="color:#949CBB">;</span></span>
 <span class="line"></span>
+<span class="line"><span style="color:#CA9EE6">export</span><span style="color:#CA9EE6"> default</span><span style="color:#8CAAEE;font-style:italic"> compile</span><span style="color:#C6D0F5">(root)</span><span style="color:#949CBB">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#949CBB;font-style:italic">// serve.ts</span></span>
+<span class="line"><span style="color:#CA9EE6">import</span><span style="color:#C6D0F5"> handlerId </span><span style="color:#CA9EE6">from</span><span style="color:#A6D189"> './index.ts'</span><span style="color:#949CBB">;</span></span>
+<span class="line"><span style="color:#CA9EE6">import</span><span style="color:#949CBB"> {</span><span style="color:#C6D0F5"> getDependency </span><span style="color:#949CBB">}</span><span style="color:#CA9EE6"> from</span><span style="color:#A6D189"> 'runtime-compiler'</span><span style="color:#949CBB">;</span></span>
+<span class="line"></span>
 <span class="line"><span style="color:#CA9EE6">export</span><span style="color:#CA9EE6"> default</span><span style="color:#949CBB"> {</span></span>
-<span class="line"><span style="color:#C6D0F5">  fetch</span><span style="color:#81C8BE">:</span><span style="color:#8CAAEE;font-style:italic"> getDependency</span><span style="color:#C6D0F5">(</span><span style="color:#8CAAEE;font-style:italic">compile</span><span style="color:#C6D0F5">(root))</span><span style="color:#949CBB">,</span></span>
+<span class="line"><span style="color:#C6D0F5">  fetch</span><span style="color:#81C8BE">:</span><span style="color:#8CAAEE;font-style:italic"> getDependency</span><span style="color:#C6D0F5">(handlerId)</span><span style="color:#949CBB">,</span></span>
 <span class="line"><span style="color:#949CBB">};</span></span>
 <span class="line"></span></code></pre></body>
 </html>
